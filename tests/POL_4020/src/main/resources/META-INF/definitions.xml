@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!-- 
+Definitions file containing a policySet and two intents that it satisfies.
+-->
+<definitions 	xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+				targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903">
+
+   <intent name="BindingIntent" constrains="sca:binding" intentType="interaction"/>
+   
+   <intent name="ReferenceIntent" constrains="sca:binding" intentType="interaction"/>
+
+   <policySet name="BothIntents" provides="test:BindingIntent test:ReferenceIntent" appliesTo="//sca:binding.sca" attachTo="//sca:reference[@name='reference1']/interface.wsdl">
+      <!-- This policy intentionally left blank -->
+   </policySet>
+
+</definitions>

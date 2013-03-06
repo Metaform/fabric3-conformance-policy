@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-40027, POL-TA-40028
+ Tests that when an intent is required, that the attached policySet(s) satisfies the intent.
+  -->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_4024">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0002"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws/>
+        </service>
+        <reference name="reference1" target="TEST_POL_4024Component1" requires="test:testIntent3" policySets="test:PolicySet1"/>
+        <property name="testName">POL_4024</property>
+    </component>
+    
+    <component name="TEST_POL_4024Component1">
+        <implementation.composite name="test:TestComposite1"/>
+        <service name="Service1" requires="test:testIntent3" policySets="test:PolicySet1">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(Service1)"/>
+        </service>
+        <property name="serviceName">service1</property>
+    </component> 
+
+</composite>

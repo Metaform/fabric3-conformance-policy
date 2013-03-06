@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!-- 
+Definitions file containing two policySets, one is attached to a componentType, one is attached to a component.
+-->
+<definitions 	xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+				targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903">
+
+   <intent name="testImplIntent1" constrains="sca:implementation" intentType="implementation" />
+
+   <intent name="testImplIntent2" constrains="sca:implementation" intentType="implementation" />
+
+   <policySet name="ComponentPolicySet" provides="test:testImplIntent1" appliesTo="//sca:component"
+              attachTo="//sca:component[@name='TEST_POL_4009Component1']">
+      <!-- This policy intentionally left blank -->
+
+   </policySet>
+
+   <policySet name="ComponentTypePolicySet" provides="test:testImplIntent2" appliesTo="//sca:composite"
+              attachTo="//sca:composite[@name='TestCompositeImplPolicySet']">
+      <!-- This policy intentionally left blank -->
+
+   </policySet>
+
+</definitions>

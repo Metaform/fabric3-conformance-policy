@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!-- 
+Definitions file containing a policy set definition with an attachTo expression.
+-->
+<definitions 	xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+				targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903">
+   
+   <policySet name="PolicySetExtAttach" provides="test:testIntent3" appliesTo="//sca:binding.ws" attachTo="//sca:binding.ws">
+      <!-- This policy intentionally left blank -->
+
+   </policySet>
+
+</definitions>

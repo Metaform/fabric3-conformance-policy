@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://test.sca.oasisopen.org/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:impl="http://test.sca.oasisopen.org/" xmlns:intf="http://test.sca.oasisopen.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://test.sca.oasisopen.org/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="operation1Response">
+    <complexType>
+     <sequence>
+      <element name="operation1Return" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="operation1">
+    <complexType>
+     <sequence>
+      <element name="arg_0_0" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="operation1Request">
+     <wsdl:part element="intf:operation1" name="parameters"/>
+
+  </wsdl:message>
+
+   <wsdl:message name="operation1Response">
+     <wsdl:part element="intf:operation1Response" name="parameters"/>
+
+  </wsdl:message>
+
+   <wsdl:portType name="Service1">
+     <wsdl:operation name="operation1">
+       <wsdl:input message="intf:operation1Request" name="operation1Request"/>
+
+       <wsdl:output message="intf:operation1Response" name="operation1Response"/>
+
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+   <wsdl:binding name="Service1SOAP12Binding" type="intf:Service1">
+     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+     <wsdl:operation name="operation1">
+      <soap12:operation soapAction="http://test.sca.oasisopen.org/operation1" soapActionRequired="true" style="document" />
+     
+       <wsdl:input name="operation1Request">
+          <soap12:body use="literal" namespace="http://test.sca.oasisopen.org/" encodingStyle="http://www.w3.org/2001/12/soap-encoding" />
+       </wsdl:input>
+
+       <wsdl:output name="operation1Response">
+          <soap12:body use="literal" namespace="http://test.sca.oasisopen.org/" encodingStyle="http://www.w3.org/2001/12/soap-encoding" />
+       </wsdl:output>
+
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+   <wsdl:service name="Service1Service">
+     <wsdl:port binding="intf:Service1SOAP12Binding" name="Service1SOAP12">
+     <soap12:address location="http://example.com/"/>
+
+    </wsdl:port>
+
+  </wsdl:service>
+
+</wsdl:definitions>

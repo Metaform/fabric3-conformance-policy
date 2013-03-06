@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-40001
+ A testcase to verify that directly attached policy sets are overridden by externally attached
+ policySet.
+  -->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_4001">
+           
+    <component name="TestClient">
+		<implementation.composite name="test:TestClient_0004"/>
+		<service name="TestInvocation" requires="test:testIntentExt1 test:testIntentExt2" policySets="test:DirectPolicySet">
+			<interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+			<binding.ws/>
+		</service>
+		<property name="testName">POL_4001</property>
+    </component>
+        
+</composite>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-40023
+ Tests that where a <component/> has an <reference/> element which has a <interface/> subelement 
+ with an intent attached to it, that the intent applies to the  <component/> <reference/> and 
+ must be satisfied by its binding.
+-->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_4032">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0002"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws/>
+        </service>
+        <!-- The interface declared for reference1 has an attached "SOAP.v1_1" intent,
+             which implies that the binding used in the component must support the SOAP.v1_1 intent -->
+        <reference name="reference1" target="TEST_POL_4032Component1">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(Service1withSOAPIntent)"/>
+        </reference>
+        <property name="testName">POL_4032</property>
+    </component>
+    
+    <component name="TEST_POL_4032Component1">
+        <implementation.composite name="test:TestComposite1"/>
+        <service name="Service1">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(Service1)"/>
+            <!-- Configure the service to use binding.ws, which DOES support the SOAP.v1_1 intent -->
+            <binding.ws/>
+        </service>
+        <property name="serviceName">service1</property>
+    </component> 
+
+</composite>

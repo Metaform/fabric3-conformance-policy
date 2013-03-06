@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-30021
+ Tests that an intentMap provides an intent that is provided by the containing policySet.
+  -->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_3018">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0004"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws policySets="test:BadIntentMapPolicySet"/>
+        </service>
+        <property name="testName">POL_3018</property>
+    </component>
+    
+</composite>

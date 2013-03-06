@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-30019
+ Tests that the XPath expression in policySet/@attachTo is valid. This testcase
+ contribution contains a policySet that has an invalid attachTo value.
+  -->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_3016">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0004"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws/>
+        </service>
+        <property name="testName">POL_3016</property>
+    </component>
+    
+</composite>

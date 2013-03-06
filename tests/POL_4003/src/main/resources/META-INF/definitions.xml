@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!-- 
+Definitions file containing an externally attached policy set.
+-->
+<definitions 	xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+				targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903">
+
+   <intent name="testIntentExt" constrains="sca:binding" intentType="interaction"/>
+   
+   <policySet name="ExtPolicySet" provides="test:testIntentExt" appliesTo="//sca:binding.sca" attachTo="IntentRefs('test:testIntentExt')">
+
+   </policySet>
+
+</definitions>

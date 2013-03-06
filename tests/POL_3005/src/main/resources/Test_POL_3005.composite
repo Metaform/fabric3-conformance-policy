@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-30005
+ Tests that the runtime rejects a definitions file when it contains an intent definition which has
+ two duplicate qualifiers.
+  -->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_3005">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0004" requires="test:dupQualifiers.qual1"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws/>
+        </service>
+        <property name="testName">POL_3005</property>
+    </component>
+    
+</composite>

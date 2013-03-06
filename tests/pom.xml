@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.metaformsystems.fabric3.conformance.policy</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>tests</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Fabric3 SCA Web Services Binding Conformance Tests</name>
+    <packaging>pom</packaging>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.fabric3.spec</groupId>
+            <artifactId>sca-api</artifactId>
+            <version>${sca.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+    </dependencies>
+
+
+    <modules>
+        <module>smoketest</module>
+        <module>POL_3001</module>
+        <module>POL_3003</module>
+        <module>POL_3004</module>
+        <module>POL_3005</module>
+        <module>POL_3006</module>
+        <module>POL_3007</module>
+        <module>POL_3008</module>
+        <module>POL_3009</module>
+        <module>POL_3011</module>
+        <module>POL_3012</module>
+        <module>POL_3013</module>
+        <module>POL_3014</module>
+        <module>POL_3015</module>
+        <module>POL_3016</module>
+        <module>POL_3017</module>
+        <module>POL_3018</module>
+        <module>POL_3019</module>
+        <module>POL_3020</module>
+        <module>POL_4001</module>
+        <module>POL_4002</module>
+        <module>POL_4003</module>
+        <module>POL_4004</module>
+        <module>POL_4005</module>
+        <module>POL_4006</module>
+        <module>POL_4007</module>
+        <module>POL_4008</module>
+        <module>POL_4009</module>
+        <module>POL_4010</module>
+        <module>POL_4012</module>
+        <module>POL_4013</module>
+        <module>POL_4018</module>
+        <module>POL_4019</module>
+        <module>POL_4020</module>
+        <module>POL_4024</module>
+        <module>POL_4027</module>
+        <module>POL_4028</module>
+        <module>POL_4029</module>
+        <module>POL_4030</module>
+        <module>POL_4031</module>
+        <module>POL_4032</module>
+        <module>POL_4033</module>
+        <module>POL_5001</module>
+        <module>POL_9006</module>
+        <module>POL_9009</module>
+        <module>POL_9015</module>
+        <module>POL_9016</module>
+        <module>POL_9017</module>
+        <module>POL_9018</module>
+        <module>POL_9019</module>
+        <module>POL_9020</module>
+        <module>POL_9021</module>
+        <module>POL_9022</module>
+        <module>POL_9023</module>
+        <module>POL_10001</module>
+        <module>POL_11001</module>
+    </modules>
+</project>

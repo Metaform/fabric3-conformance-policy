@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!--
+ POL-TA-40021
+ Tests that where a <component/> has an <implementation/> element which has a service with an attached 
+ unqualified form of an intent and the qualified form of the intent is attached to <service/> element 
+ of the component, that the qualified form of the intent applies to the  <component/> <service/> and 
+ must be satisfied by its binding.
+-->
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+           name="TEST_POL_4030">
+           
+    <component name="TestClient">
+        <implementation.composite name="test:TestClient_0002"/>
+        <service name="TestInvocation">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(TestInvocation)"/>
+            <binding.ws/>
+        </service>
+        <reference name="reference1" target="TEST_POL_4030Component1" requires="SOAP.v1_1"/>
+        <property name="testName">POL_4030</property>
+    </component>
+    
+    <component name="TEST_POL_4030Component1">
+        <implementation.composite name="test:TestCompositeSOAP"/>
+        <!-- The component type for TestComposite4 has service="Service1" with an attached unqualified intent
+             "SOAP", while the service declaration in this component requires the qualified form of the intent,
+             "SOAP.v1_1", which implies that the binding used in the component must support the SOAP.v1_1 intent -->
+        <service name="Service1" requires="SOAP.v1_1">
+            <interface.wsdl interface="http://test.sca.oasisopen.org/#wsdl.porttype(Service1)"/>
+            <!-- Configure the service to use binding.ws, which DOES support the SOAP.v1_1 intent -->
+            <binding.ws/>
+        </service>
+        <property name="serviceName">service1</property>
+    </component> 
+
+</composite>

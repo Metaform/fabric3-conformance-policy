@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!--
+ *
+ * Copyright(C) OASIS(R) 2009,2010. All Rights Reserved.
+ * OASIS trademark, IPR and other policies apply.    
+ *   
+-->
+<!-- 
+Definitions file containing a qualifiable intent and policySets to satisfy it.
+-->
+<definitions 	xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+				xmlns:test="http://docs.oasis-open.org/ns/opencsa/scatests/200903"
+				targetNamespace="http://docs.oasis-open.org/ns/opencsa/scatests/200903">
+
+   <intent name="testImplIntent" constrains="sca:implementation" intentType="implementation">
+      <qualifier name="qual1" default="true"/>
+      <qualifier name="qual2"/>
+   </intent>
+
+   <policySet name="Qual1PolicySet" provides="test:testImplIntent.qual1" appliesTo="//sca:implementation.composite" attachTo="//sca:implementation.composite[IntentRefs('testImplIntent.qual2')]">
+      <!-- This policy intentionally left blank -->
+
+   </policySet>
+
+</definitions>
